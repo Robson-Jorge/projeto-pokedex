@@ -1,39 +1,30 @@
-import { useState, useEffect } from 'react';
-import  styled   from "styled-components";
-import getPokemon from './services/pokemon';
+// import { useState, useEffect } from 'react';
+// import getPokemon from './services/pokemon';
+import Header from "./components/header/"
 import './App.css';
-
-const Title = styled.h1`
-  color: #f00;
-  font-size: 80px;
-  text-transform: uppercase;
-`
 
 function App() {
 
-  const [poke, setPoke] = useState({
-    pokemon: []
-  })
+  // const [poke, setPoke] = useState({
+  //   pokemon: []
+  // })
 
-  useEffect(() =>{
-    const fetchData = async () => {
-      const data = await getPokemon()
+  // useEffect(() =>{
+  //   const fetchData = async () => {
+  //     const data = await getPokemon()
 
-      setPoke({
-        pokemon : data
-      })
-      
-      console.log(data); 
-    }
-    fetchData()
-  },[])
+  //     setPoke({
+  //       pokemon : data
+  //     })
+           
+  //   }
+  //   fetchData()
+  // },[])
 
   return (
     <div className="App">
       <header className="App-header">
-        <Title>
-          {poke.pokemon.name}
-        </Title>
+        <Header/>
       </header>
     </div>
   );
