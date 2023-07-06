@@ -1,5 +1,6 @@
 import Icon from '../../image/icon-search'
 import styled from 'styled-components'
+import Themes from '../themes/themes'
 
 export default function SearchBar () {
     return (
@@ -25,7 +26,7 @@ const SearchIcon = styled.div`
         border-radius: 8px;
         padding: 8px;
         border: 1px solid #000;
-        background-color: rgba(217, 217, 217, 0.5);
+        background-color: ${Themes.Default.BackgroundColorPrimary};
         outline: none;
         font-weight: bold;
     }

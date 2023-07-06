@@ -3,4 +3,11 @@ async function getPokemon() {
     return await response.json()  
  }
 
- export default getPokemon
+async function getPokemonType() {
+    const response = await getPokemon()
+    const pokemonType = response.types.map(type=> type.type.name)
+    return pokemonType
+}
+getPokemonType()
+
+export {getPokemon, getPokemonType}

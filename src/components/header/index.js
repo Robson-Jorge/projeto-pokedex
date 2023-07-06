@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import Logo from "../header/logo"
 import Toggle from "../header/toggleButton"
-import SearchBar from "./searchbar"
-import MenuHamburguer from "./menuType"
+import SearchBar from "./search-bar"
+import MenuHamburguer from "./menu-Type"
 
 export default function Header () {
     return (
@@ -21,4 +21,5 @@ const HeaderContainer = styled.header`
     margin: 25px 30px;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 `
