@@ -1,16 +1,10 @@
-import styled, { ThemeContext } from "styled-components"
+import styled  from "styled-components"
 import colorTypes from "../themes/types-list-colors"
 import getTypePokemon from "../../services/types-pokemon"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Themes from "../themes/themes"
 
-
 export default function MenuHamburguer () {
-
-    // const {theme, setTheme} = useContext(ThemeContext);
-
-    // console.log(theme);
-
 
     const [poke, setPoke] = useState([])
     useEffect(() =>{
@@ -52,6 +46,7 @@ export default function MenuHamburguer () {
 
 const Nav = styled.nav` 
     position: relative;
+    color: #000;
 
     input{
         display: none;
@@ -75,7 +70,6 @@ const Nav = styled.nav`
         align-items: center;
         padding-left: 10px;
         cursor: pointer;
-        color: #000;
         font-size: 18px;
         width: 195px;
         height: 35px;
@@ -83,7 +77,6 @@ const Nav = styled.nav`
 `
 
 const Ul = styled.ul`
-    list-style: none;
     display: none;
     position: absolute;
     width: 180px;
@@ -107,12 +100,12 @@ const Ul = styled.ul`
         height: 30px;
         margin-top: 8px;
         border-radius: 4px;
-        text-decoration: none;
         font-size: 18px;
         color: #000;
         line-height: 22px;
-        transition: 0.2s ease-in-out;
-        box-shadow: 0 2px 10px ${Themes.lightTheme.BoxShadowLight};
+        transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+        box-shadow: 0 2px 8px ${Themes.darkTheme.BoxShadowDark};
+        text-transform: capitalize;
     }
     a:hover{
         transform: scale(1.02);
@@ -137,7 +130,7 @@ const Div = styled.div`
         background-color: #000;
         position: relative;
         display: block;
-        width: 30px;
+        width: 25px;
         height: 2px;
         top: 50%;
         transform: translateY(-50%);

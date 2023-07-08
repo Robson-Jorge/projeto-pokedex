@@ -8,7 +8,6 @@ export const ThemeProvider = (props) => {
 
     const [ theme, setTheme ] = useTheme('theme', Themes.lightTheme)
 
-    // console.log(theme);
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>
             {props.children}

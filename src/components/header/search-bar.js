@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import Themes from '../themes/themes'
 
 export default function SearchBar () {
+
     return (
         <>
             <SearchIcon>
                 <input type='text' placeholder='Search'></input>
-                <Icon/>
+                <Icon />
             </SearchIcon>
         </>
     )
@@ -19,7 +20,7 @@ const SearchIcon = styled.div`
     font-size: 24px;
     width: 450px;
     height: 40px;
-    color: #000;
+    transition: 2s ease-in-out;
     input {
         width: 450px;
         height: 40px;

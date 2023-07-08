@@ -1,15 +1,27 @@
+import FundoImagemLight from '../../image/pokemon-dia.jpg'
+import FundoImagemDark from '../../image/pokemon-noite.jpg'
+
 const Themes = {
     Default : {
         BackgroundColorPrimary : `rgba(217, 217, 217, 0.5)` ,
+
+        BackgroundHover:'linear-gradient(180deg, #0F3 0%, #00C3C5 50%, #03266F 100%)',
+
     
-        BackgroundMenu: `#BDC0CA`
+        BackgroundMenu: `#BDC0CA`,
+
+        ColorLightPoke: '#FFCB05',
+
+        ColorDarkPoke: '#3B5BA7', 
     }, 
 
     lightTheme : {
+        BackgroundColorPrimary : `rgba(217, 217, 217, 0.5)` ,
+        BackgroundMenu: `#BDC0CA`,
     
-        Background: `url(../../image/pokemon-dia.jpg) no-repeat center / cover`,
+        Background: FundoImagemLight,
     
-        BackgroundCardLight: '#E5E4E4',
+        BackgroundCard: 'rgba(228, 228, 228, 0.58)',
 
         ButtonContentLight: '#3B5BA7',  
         ButtonLight: '#FFCB05',
@@ -21,10 +33,12 @@ const Themes = {
     },
 
     darkTheme : {
+        BackgroundColorPrimary : `rgba(217, 217, 217, 0.5)` ,
+        BackgroundMenu: `#BDC0CA`,
     
-        Background: `url(../../image/pokemon-noite.jpg) no-repeat center / cover`,
+        Background: FundoImagemDark,
     
-        BackgroundCardDark: '#939393',
+        BackgroundCard: 'rgba(110, 110, 110, 0.80)',
     
         ButtonContentLight: '#FFCB05',
         ButtonLight: '#3B5BA7',
@@ -33,7 +47,7 @@ const Themes = {
     
         BoxShadowDark:'rgba(255, 255, 255, 0.2)',
     
-        Color: '#fff'
+        Color: '#e1e1e1'
     }
 }
 

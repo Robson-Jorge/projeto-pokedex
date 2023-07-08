@@ -3,11 +3,15 @@ async function getPokemon() {
     return await response.json()  
  }
 
-async function getPokemonType() {
-    const response = await getPokemon()
-    const pokemonType = response.types.map(type=> type.type.name)
-    return pokemonType
-}
-getPokemonType()
+// async function getPokemonType() {
+//     const response = await getPokemon()
+//     const pokemonType = response.types.map(type=> type.type.name)
+//     return pokemonType
+// }
 
-export {getPokemon, getPokemonType}
+async function getPokemonImage() {      
+    const response = await getPokemon()
+    return response.sprites.other.dream_world.front_default;
+}
+
+export {getPokemon, getPokemonImage }

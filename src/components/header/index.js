@@ -17,8 +17,8 @@ export default function Header () {
 
 const HeaderContainer = styled.header`
     display: flex;
-    width: 100%;
-    margin: 25px 30px;
+    width: 100vw;
+    margin: 15px 30px;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;

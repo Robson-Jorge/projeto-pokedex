@@ -3,5 +3,3 @@ export default async function getTypePokemon() {
     const resolve = response.json()  
     return resolve
  }
-
- 

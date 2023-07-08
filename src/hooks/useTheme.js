@@ -10,7 +10,6 @@ export default function useTheme(key, initialTheme) {
     useEffect(() => {
         localStorage.setItem(key , JSON.stringify(theme));
     }, [key, theme]);
-    // console.log(theme);
 
     return [theme, setTheme]
 }
