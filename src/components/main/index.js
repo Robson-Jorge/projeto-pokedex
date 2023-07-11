@@ -1,21 +1,13 @@
 import styled from "styled-components"
-import Card from "./card"
+import { Card, UlCards } from "./card"
 import LoadButton from "./button"
 
 export default function Main () {
     return (
         <>
         <MainContent>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            {/* <Card/> */}
+            <UlCards/>
         </MainContent>
         <LoadButton/>
         </>

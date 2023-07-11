@@ -10,7 +10,7 @@ export default function Toggle () {
     return (
         <ButtonContainer background={theme.ButtonContentLight} color={theme.Color}>
             <Button 
-            onClick={() => {setTheme(theme === Themes.darkTheme ? Themes.lightTheme : Themes.darkTheme)}}
+            onClick={() => {setTheme(theme.Title === 'Dark' ? Themes.lightTheme : Themes.darkTheme)}}
             background={theme.ButtonLight} transform={theme.ButtonAnim}
             />
            
@@ -28,7 +28,6 @@ const ButtonContainer = styled.div`
     background-color: ${props => props.background};
     display: flex;
     align-items: center;
-    cursor: pointer;
     transition: 0.5s ease-in-out;
 `
 

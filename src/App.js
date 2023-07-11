@@ -3,6 +3,7 @@ import Main from "./components/main";
 import { createGlobalStyle } from 'styled-components'
 import { ThemeContext, ThemeProvider } from './contexts/theme-context';
 import { useContext } from "react";
+import GoogleFontLoader from 'react-google-font-loader'
 
 function App() {
   return (
@@ -16,7 +17,24 @@ function AppContent () {
   const {theme} = useContext(ThemeContext);
 
   return (
-    <>
+    <>      
+      <GoogleFontLoader
+        fonts={[
+          {
+            font: 'Acme',
+            weights: [400, '400i'],
+          },
+          {
+            font: 'Roboto',
+            weights: [400, '400i'],
+          },
+          {
+            font: 'Gloock',
+            weights: [400, 700],
+          },
+        ]}
+        subsets={['cyrillic-ext', 'greek']}
+      />
       <GlobalStyle backgroundTheme={theme.Background}/>
       <Header/>
       <Main/>
@@ -44,6 +62,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     overflow-x: hidden;
     background-color: #282c34;
+    font-family: 'Roboto', sans-serif;
   }
 
   #root{
@@ -65,15 +84,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *::-webkit-scrollbar-track {
-    background: #f1e9e9;
+    background: #c8c8c8;
     border-radius: 10px;
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #582965;
+    background-color: #3B5BA7;
     border-radius: 10px;
-    border: 3px solid #ffffff;
+    border: 3px solid #e8e8e8;
   }
+
+  @font-face {
+    font-family: PokemonClassic;
+    src: url('./fonts/PokemonClassic.ttf');
+ }
 `
 
 export default App;

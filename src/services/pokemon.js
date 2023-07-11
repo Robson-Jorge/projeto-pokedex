@@ -1,16 +1,11 @@
-async function getPokemon() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/6/')
+async function getPokemon(teste) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${teste}`)
     return await response.json()  
  }
 
-// async function getPokemonType() {
-//     const response = await getPokemon()
-//     const pokemonType = response.types.map(type=> type.type.name)
-//     return pokemonType
-// }
-
-async function getPokemonImage() {      
-    const response = await getPokemon()
+async function getPokemonImage(teste) {      
+    const response = await getPokemon(teste)
+    console.log(response);
     return response.sprites.other.dream_world.front_default;
 }
 

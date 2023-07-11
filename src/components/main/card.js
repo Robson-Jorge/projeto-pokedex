@@ -4,8 +4,9 @@ import { useState, useEffect, useContext } from "react";
 import colorTypes from "../themes/types-list-colors";
 import { getPokemon, getPokemonImage } from '../../services/pokemon'
 import { ThemeContext } from "../../contexts/theme-context";
+import getPokemonResults from "../../services/results";
 
-export default function Card () {
+function Card () {
 
     const [poke, setPoke] = useState({
         namePoke : '',
@@ -15,20 +16,24 @@ export default function Card () {
 
     const {theme} = useContext(ThemeContext)
 
+    // useEffect(() =>{
+
+    //     (async () => {
+    //         const data = await getPokemonImage()
+    //         setPokeImage(data)
+    //     })()
+    //   },[])
+
     useEffect(() =>{
 
         (async () => {
-            const data = await getPokemonImage()
-            setPokeImage(data)
-        })()
-      },[])
-
-    useEffect(() =>{
-
-        (async () => {
-            const data = await getPokemon()
+            const teste = await getPokemonResults()
+            const data = await getPokemon(teste)
+            const dataImg = data.sprites.other.dream_world.front_default;
+            console.log(dataImg);
             const pokeName = data.name  
             const result = data.types.map(type => type.type.name)
+            setPokeImage(dataImg)
             setPoke(prevState => ({...prevState, typeName : [result], namePoke : pokeName}))
         })()
     },[])
@@ -51,6 +56,33 @@ export default function Card () {
     )
 }
 
+function UlCards() {
+    return(
+    <ul>
+        <Card/>
+    </ul>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export {Card , UlCards}
+
+
+//Style
+
 const CardContent = styled.div`
  width: 216px;
  height: 280px;
@@ -68,7 +100,7 @@ const CardContent = styled.div`
 
 
  &:hover{
-    transform: scale(1.04);
+    transform: scale(1.02);
     background: ${Themes.Default.BackgroundHover};
     color: #000;
 
@@ -85,10 +117,14 @@ const CardContent = styled.div`
     border: 1px solid;
     font-size: 18px;
     line-height: 20px;
+    text-transform: capitalize;
+    font-family: 'Gloock';
+    font-weight: 700;
+    letter-spacing: 4px;
  }
 
  img{
-    width: 80%;
+    height: 150px;
  }
 
  ul{
@@ -99,10 +135,14 @@ const CardContent = styled.div`
  }
 
  li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
     width: 72px;
     height: 25px;
-    text-align: center;
     font-size: 16px;
     border-radius: 15px;
+    font-family: 'Acme';
  }
 `

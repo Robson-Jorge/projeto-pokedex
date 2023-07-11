@@ -17,19 +17,17 @@ export default function SearchBar () {
 const SearchIcon = styled.div`
     display: flex;
     position: relative;
-    font-size: 24px;
     width: 450px;
     height: 40px;
-    transition: 2s ease-in-out;
     input {
         width: 450px;
         height: 40px;
+        font-size: 16px;
         border-radius: 8px;
         padding: 8px;
         border: 1px solid #000;
         background-color: ${Themes.Default.BackgroundColorPrimary};
         outline: none;
-        font-weight: bold;
     }
     input::placeholder{
         color: #000;

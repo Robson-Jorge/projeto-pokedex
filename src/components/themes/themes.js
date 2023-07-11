@@ -16,12 +16,14 @@ const Themes = {
     }, 
 
     lightTheme : {
+        Title: 'Light',
+
         BackgroundColorPrimary : `rgba(217, 217, 217, 0.5)` ,
         BackgroundMenu: `#BDC0CA`,
     
         Background: FundoImagemLight,
     
-        BackgroundCard: 'rgba(228, 228, 228, 0.58)',
+        BackgroundCard: 'rgba(198, 198, 198, 0.68)',
 
         ButtonContentLight: '#3B5BA7',  
         ButtonLight: '#FFCB05',
@@ -33,6 +35,8 @@ const Themes = {
     },
 
     darkTheme : {
+        Title: 'Dark',
+
         BackgroundColorPrimary : `rgba(217, 217, 217, 0.5)` ,
         BackgroundMenu: `#BDC0CA`,
     

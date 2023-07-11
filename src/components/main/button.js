@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Themes from "../themes/themes";
+import getPokemonResults from "../../services/results";
 
 export default function LoadButton () {
     return(
         <>
-            <Button>Carregar mais</Button>
+            <Button onClick={()=> getPokemonResults()}>Carregar mais</Button>
         </>
     )
 }
@@ -18,7 +19,7 @@ const Button = styled.button`
     box-shadow: 0px 0px 14px 2px ${Themes.Default.ColorDarkPoke} inset;
     cursor: pointer;
     color: ${Themes.Default.ColorDarkPoke};
-    font: bold 20px sans-serif;
+    font: bold 20px 'Gloock';
     transition: background-color 0.3s ease, color 0.3s ease;
     &:hover{
         transform: scale(1.02);

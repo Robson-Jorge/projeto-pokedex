@@ -47,6 +47,7 @@ export default function MenuHamburguer () {
 const Nav = styled.nav` 
     position: relative;
     color: #000;
+    font-family: 'Acme';
 
     input{
         display: none;
