@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 import { ThemeContext, ThemeProvider } from './contexts/theme-context';
 import { useContext } from "react";
 import GoogleFontLoader from 'react-google-font-loader'
+import Modal from "./components/modal";
 
 function App() {
   return (
@@ -35,8 +36,9 @@ function AppContent () {
         ]}
         subsets={['cyrillic-ext', 'greek']}
       />
-      <GlobalStyle backgroundTheme={theme.Background}/>
+      <GlobalStyle backgroundTheme={theme.BackgroundMain}/>
       <Header/>
+      <Modal/>
       <Main/>
     </>
   )
@@ -57,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
 
   a{
     text-decoration: none;
+    color: #000;
   }
 
   body{

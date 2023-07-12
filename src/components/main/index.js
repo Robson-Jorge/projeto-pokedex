@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import { Card, UlCards } from "./card"
+// import { Card, UlCards } from "./card"
+import UlTesteCards from "./teste/teste"
 import LoadButton from "./button"
 
 export default function Main () {
@@ -7,7 +8,8 @@ export default function Main () {
         <>
         <MainContent>
             {/* <Card/> */}
-            <UlCards/>
+            <UlTesteCards/>
+            {/* <UlCards/> */}
         </MainContent>
         <LoadButton/>
         </>

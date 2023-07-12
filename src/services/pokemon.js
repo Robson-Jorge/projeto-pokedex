@@ -1,5 +1,5 @@
 async function getPokemon(teste) {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${teste}`)
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/78`)
     return await response.json()  
  }
 

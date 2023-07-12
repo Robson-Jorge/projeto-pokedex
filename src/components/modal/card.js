@@ -2,12 +2,11 @@ import styled from "styled-components";
 import Themes from "../themes/themes";
 import { useState, useEffect, useContext } from "react";
 import colorTypes from "../themes/types-list-colors";
-import { getPokemon, getPokemonImage } from '../../services/pokemon'
+import { getPokemon } from '../../services/pokemon'
 import { ThemeContext } from "../../contexts/theme-context";
 import getPokemonResults from "../../services/results";
 
-export default function Card () {
-
+export default function Card() {
     const [poke, setPoke] = useState({
         namePoke : '',
         typeName : []
@@ -15,14 +14,6 @@ export default function Card () {
     const [ pokeImage, setPokeImage] = useState()
 
     const {theme} = useContext(ThemeContext)
-
-    // useEffect(() =>{
-
-    //     (async () => {
-    //         const data = await getPokemonImage()
-    //         console.log(data);
-    //     })()
-    //   },[])
 
     useEffect(() =>{
 
@@ -56,15 +47,12 @@ export default function Card () {
     )
 }
 
-//Style
-
 const CardContent = styled.div`
- width: 216px;
- height: 280px;
- margin: 15px 30px;
+ width: 40%;
+ height: 100%;
  border-radius: 10px;
  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
- background-color: ${props => props.background};
+ /* background-color: ${props => props.background}; */
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -73,20 +61,12 @@ const CardContent = styled.div`
  transition: 0.3s ease-in-out;
  color: ${props => props.color};
 
-
- &:hover{
-    transform: scale(1.02);
-    background: ${Themes.Default.BackgroundHover};
-    color: #000;
-
-}
-
  div{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 30px;
+    width: 280px;
+    height: 50px;
     text-align: center;
     border-radius: 8px;
     border: 1px solid;
@@ -99,14 +79,14 @@ const CardContent = styled.div`
  }
 
  img{
-    height: 150px;
+    height: 300px;
  }
 
  ul{
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 45px;
  }
 
  li{
@@ -114,10 +94,10 @@ const CardContent = styled.div`
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
-    width: 72px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 15px;
+    width: 92px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 20px;
     font-family: 'Acme';
  }
 `
