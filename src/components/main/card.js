@@ -1,56 +1,27 @@
 import styled from "styled-components";
 import Themes from "../themes/themes";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import colorTypes from "../themes/types-list-colors";
-import { getPokemon, getPokemonImage } from '../../services/pokemon'
 import { ThemeContext } from "../../contexts/theme-context";
-import getPokemonResults from "../../services/results";
 
-export default function Card () {
-
-    const [poke, setPoke] = useState({
-        namePoke : '',
-        typeName : []
-    })
-    const [ pokeImage, setPokeImage] = useState()
+export default function Card ({item}) {
 
     const {theme} = useContext(ThemeContext)
-
-    // useEffect(() =>{
-
-    //     (async () => {
-    //         const data = await getPokemonImage()
-    //         console.log(data);
-    //     })()
-    //   },[])
-
-    useEffect(() =>{
-
-        (async () => {
-            const teste = await getPokemonResults()
-            const data = await getPokemon(teste)
-            const dataImg = data.sprites.other.dream_world.front_default;
-            const pokeName = data.name  
-            const result = data.types.map(type => type.type.name)
-            setPokeImage(dataImg)
-            setPoke(prevState => ({...prevState, typeName : [result], namePoke : pokeName}))
-        })()
-    },[])
-
-
-    const typePokemon = poke.typeName[0]?.map((type, index) => (
-        
-        <li key={index} style={{background:colorTypes[type]}}>{type}</li>
-    ));
 
     return(
         <CardContent color={theme.Color} background={theme.BackgroundCard}>
             <div>
-                <p>{poke.namePoke}</p>
+                <p>{item?.name}</p>
             </div>
-            <img src={pokeImage} alt={poke.namePoke}/>
+            <img src={item?.sprites?.other.dream_world.front_default} alt={item?.name}/>
             <ul>
-                {typePokemon}
+                {
+                    item?.types?.map((type, index) => {
+                        return(
+                            <li key={index} style={{background:colorTypes[type.type.name]}}>{type.type.name}</li>
+                        )
+                    })
+                }
             </ul>
         </CardContent>
     )
@@ -70,9 +41,15 @@ const CardContent = styled.div`
  align-items: center;
  justify-content: space-between;
  padding: 25px;
- transition: 0.3s ease-in-out;
+ transition: 0.2s ease;
  color: ${props => props.color};
+ cursor: pointer;
+ animation: scale 0.4s ease ;
 
+ @keyframes scale {
+    from{transform: scale(0);}
+    to{transform: scale(1);}
+ }
 
  &:hover{
     transform: scale(1.02);
@@ -85,8 +62,7 @@ const CardContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 30px;
+    padding: 5px 15px;
     text-align: center;
     border-radius: 8px;
     border: 1px solid;
@@ -99,7 +75,8 @@ const CardContent = styled.div`
  }
 
  img{
-    height: 150px;
+    max-width: 100%;
+    height: 135px;
  }
 
  ul{

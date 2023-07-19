@@ -1,22 +1,39 @@
 import styled from "styled-components"
-// import { Card, UlCards } from "./card"
-import UlTesteCards from "./teste/teste"
+import UlCards from "./ulcards"
 import LoadButton from "./button"
+import { useState, useEffect } from "react"
+import getPokemonResults from "../../services/results"
+import { getPokemon } from "../../services/pokemon"
 
 export default function Main () {
+
+    const [loadMore, setLoadMore] = useState(10)
+
+
+    useEffect(()=>{
+        (async ()=> {
+            await getPokemon(loadMore)
+        })()
+    },[loadMore])
+
+
+    const handleLoadMoreClick = () => {
+        setLoadMore(loadMore + 10);
+    };
+
+    console.log(loadMore);
     return (
         <>
         <MainContent>
-            {/* <Card/> */}
-            <UlTesteCards/>
-            {/* <UlCards/> */}
+        <UlCards count={loadMore}/>
         </MainContent>
-        <LoadButton/>
+        <LoadButton  onClick={handleLoadMoreClick }/>
         </>
     )
 }
 
 const MainContent = styled.main`
+    margin-top: 90px;
     width: 100vw;
     display: flex;
     flex-wrap: wrap;

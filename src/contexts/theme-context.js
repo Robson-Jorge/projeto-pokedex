@@ -6,7 +6,7 @@ export const ThemeContext = createContext({})
 
 export const ThemeProvider = (props) => {
 
-    const [ theme, setTheme ] = useTheme('theme', Themes.lightTheme)
+    const [ theme, setTheme ] = useTheme('theme', Themes.darkTheme)
 
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>

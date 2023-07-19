@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Themes from "../themes/themes";
 import getPokemonResults from "../../services/results";
+import { useState } from "react";
+import { useEffect } from "react";
 
-export default function LoadButton () {
+export default function LoadButton ({onClick}) {
     return(
         <>
-            <Button onClick={()=> getPokemonResults()}>Carregar mais</Button>
+            <Button onClick={onClick}>Carregar mais</Button>
         </>
     )
 }
