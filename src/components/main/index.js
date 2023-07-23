@@ -2,13 +2,11 @@ import styled from "styled-components"
 import UlCards from "./ulcards"
 import LoadButton from "./button"
 import { useState, useEffect } from "react"
-import getPokemonResults from "../../services/results"
 import { getPokemon } from "../../services/pokemon"
 
-export default function Main () {
+export default function Main ({filterPoke}) {
 
     const [loadMore, setLoadMore] = useState(10)
-
 
     useEffect(()=>{
         (async ()=> {
@@ -16,18 +14,16 @@ export default function Main () {
         })()
     },[loadMore])
 
-
     const handleLoadMoreClick = () => {
         setLoadMore(loadMore + 10);
     };
 
-    console.log(loadMore);
     return (
         <>
         <MainContent>
-        <UlCards count={loadMore}/>
+        <UlCards count={loadMore} onFilterPoke={filterPoke}/>
         </MainContent>
-        <LoadButton  onClick={handleLoadMoreClick }/>
+        <LoadButton  onClick={handleLoadMoreClick}/>
         </>
     )
 }

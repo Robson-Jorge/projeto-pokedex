@@ -1,9 +1,10 @@
-import Header from "./components/header/"
-import Main from "./components/main";
 import { createGlobalStyle } from 'styled-components'
 import { ThemeContext, ThemeProvider } from './contexts/theme-context';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GoogleFontLoader from 'react-google-font-loader'
+
+import Header from "./components/header/"
+import Main from "./components/main";
 import Modal from "./components/modal";
 
 function App() {
@@ -16,6 +17,12 @@ function App() {
 
 function AppContent () {
   const {theme} = useContext(ThemeContext);
+
+  const [ valueSearch, setValueSearch] = useState("")
+
+  const setValue = (newValue) => {
+    setValueSearch(newValue);
+  };
 
   return (
     <>      
@@ -37,9 +44,9 @@ function AppContent () {
         subsets={['cyrillic-ext', 'greek']}
       />
       <GlobalStyle backgroundTheme={theme.BackgroundMain}/>
-      <Header/>
-      <Modal/>
-      <Main/>
+      <Header setValue={setValue}/>
+      {/* <Modal/> */}
+      <Main filterPoke={valueSearch}/>
     </>
   )
 
@@ -72,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-wrap: wrap;
     background-color: #282c34;
-    background: url(${props => props.backgroundTheme}) no-repeat center / cover;
+    background: url(${props => props.backgroundTheme}) no-repeat center / cover fixed;
     min-height: 100vh;
     width: 100vw;
     align-items: flex-start;

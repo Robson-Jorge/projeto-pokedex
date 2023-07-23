@@ -1,14 +1,37 @@
 import Icon from '../../image/icon-search'
 import styled from 'styled-components'
 import Themes from '../themes/themes'
+import { useState } from 'react';
 
-export default function SearchBar () {
+export default function SearchBar ({onValueChange}) {
+
+    const [valueInput, setValueInput] = useState()
+
+    const handleInput = (e) => {
+        const newValue = e.target.value;
+        setValueInput(newValue);
+    };
+
+    const handleChange = () => {
+        onValueChange(valueInput);
+    };
+    
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+          handleChange();
+        }
+    };
 
     return (
         <>
             <SearchIcon>
-                <input type='text' placeholder='Search'></input>
-                <Icon />
+                <input 
+                    type='text' 
+                    placeholder='Search for name or number' 
+                    onChange={handleInput} 
+                    onKeyPress={handleKeyPress}>
+                </input>
+                <Icon onClick={handleChange}/>
             </SearchIcon>
         </>
     )
