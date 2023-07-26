@@ -4,9 +4,8 @@ import { useState, useEffect, useContext } from "react";
 import colorTypes from "../themes/types-list-colors";
 import { getPokemon } from '../../services/pokemon'
 import { ThemeContext } from "../../contexts/theme-context";
-import getPokemonResults from "../../services/results";
 
-export default function Card() {
+export default function Card({pokemon}) {
     const [poke, setPoke] = useState({
         namePoke : '',
         typeName : []
@@ -18,18 +17,17 @@ export default function Card() {
     useEffect(() =>{
 
         (async () => {
-            const teste = await getPokemonResults()
-            const data = await getPokemon(teste)
-            const dataImg = data.sprites.other.dream_world.front_default;
+            const data = await getPokemon(pokemon)
+            const dataImg = data.sprites?.other.dream_world.front_default;
             const pokeName = data.name  
-            const result = data.types.map(type => type.type.name)
+            const result = data.types?.map(type => type.type.name)
             setPokeImage(dataImg)
             setPoke(prevState => ({...prevState, typeName : [result], namePoke : pokeName}))
         })()
     },[])
 
 
-    const typePokemon = poke.typeName[0]?.map((type, index) => (
+    const typePokemon = poke?.typeName[0]?.map((type, index) => (
         
         <li key={index} style={{background:colorTypes[type]}}>{type}</li>
     ));
@@ -49,10 +47,9 @@ export default function Card() {
 
 const CardContent = styled.div`
  width: 40%;
- height: 100%;
+ min-height: 100%;
  border-radius: 10px;
  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
- /* background-color: ${props => props.background}; */
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -60,6 +57,7 @@ const CardContent = styled.div`
  padding: 25px;
  transition: 0.3s ease-in-out;
  color: ${props => props.color};
+ gap: 60px;
 
  div{
     display: flex;
@@ -70,7 +68,7 @@ const CardContent = styled.div`
     text-align: center;
     border-radius: 8px;
     border: 1px solid;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 20px;
     text-transform: capitalize;
     font-family: 'Gloock';
@@ -79,7 +77,8 @@ const CardContent = styled.div`
  }
 
  img{
-    height: 300px;
+    width: 100%;
+    max-height: 300px;
  }
 
  ul{

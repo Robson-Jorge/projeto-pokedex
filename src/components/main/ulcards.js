@@ -1,12 +1,10 @@
-import { useEffect, useState, useContext} from "react";
+import { useEffect, useState } from "react";
 import  Card  from "./card";
 import styled from "styled-components";
-import { getPokemon } from "../../services/pokemon";
-import { ThemeContext } from "../../contexts/theme-context";
+import { getListPokemon } from "../../services/pokemonList";
+import { Link } from 'react-router-dom'
 
 export default function UlCards({count, onFilterPoke}) {
-
-    const {theme} = useContext(ThemeContext)
 
     const [poke, setPoke] = useState({
         data:[]
@@ -14,7 +12,7 @@ export default function UlCards({count, onFilterPoke}) {
 
     useEffect(() =>{
         (async () => {
-            const pokemon = await getPokemon(count, onFilterPoke)
+            const pokemon = await getListPokemon(count, onFilterPoke)
             setPoke({data: pokemon})
         })()
     },[count, onFilterPoke])
@@ -24,13 +22,17 @@ export default function UlCards({count, onFilterPoke}) {
         
         {poke.data?.length > 0 ? (
             poke.data.map((pokemon, key) => (
-            <Card key={key} item={pokemon} />
+                <Link key={key} to={`/pokemon/${pokemon.name}`}>
+                    <Card key={key} item={pokemon} />
+                </Link>
         ))
         ) : !poke.data ? (
             <p className="err">Nenhum Pokémon corresponde à sua pesquisa</p>
 
         ) : (
-            <Card item={poke.data} />       
+            <Link to={`/pokemon/${poke.data.name}`}>
+                <Card item={poke.data} />       
+            </Link>
         )}
   
         

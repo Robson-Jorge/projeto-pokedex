@@ -3,17 +3,22 @@ import { ThemeContext } from "../../contexts/theme-context"
 import { useContext } from "react"
 import Card from "./card"
 import Info from "./info"
-import Icon from "../../image/icon-off"
+import IconOff from "../../image/icon-off"
+import { Link, useParams } from "react-router-dom"
 
-export default function Modal () {
+export default function Details () {
 
     const {theme} = useContext(ThemeContext)
 
+    const {name} = useParams()
+
     return(
         <Container color={theme.Color} background={theme.BackgroundModal}>
-            <Icon/>
-            <Card/>
-            <Info/>
+            <Link to='/'>
+                <IconOff/>
+            </Link>
+            <Card pokemon={name}/>
+            <Info pokemon={name}/>
         </Container>
     )
 }
@@ -21,9 +26,9 @@ export default function Modal () {
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    width: 970px;
-    height: 700px;
+    align-items: center;
+    width: 60%;
+    min-height: 650px;
     background: url(${props => props.background}) no-repeat center / cover;
     background-color: #393939;
     position: absolute;
@@ -32,6 +37,7 @@ const Container = styled.div`
     transform: translate(-50%,-50%);
     padding: 25px;
     border-radius: 10px;
+    gap: 50px;
 
     &>a{
         position: absolute;

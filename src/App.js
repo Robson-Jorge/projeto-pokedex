@@ -5,7 +5,6 @@ import GoogleFontLoader from 'react-google-font-loader'
 
 import Header from "./components/header/"
 import Main from "./components/main";
-import Modal from "./components/modal";
 
 function App() {
   return (
@@ -45,7 +44,6 @@ function AppContent () {
       />
       <GlobalStyle backgroundTheme={theme.BackgroundMain}/>
       <Header setValue={setValue}/>
-      {/* <Modal/> */}
       <Main filterPoke={valueSearch}/>
     </>
   )

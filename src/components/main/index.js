@@ -2,7 +2,7 @@ import styled from "styled-components"
 import UlCards from "./ulcards"
 import LoadButton from "./button"
 import { useState, useEffect } from "react"
-import { getPokemon } from "../../services/pokemon"
+import { getListPokemon } from "../../services/pokemonList"
 
 export default function Main ({filterPoke}) {
 
@@ -10,7 +10,7 @@ export default function Main ({filterPoke}) {
 
     useEffect(()=>{
         (async ()=> {
-            await getPokemon(loadMore)
+            await getListPokemon(loadMore)
         })()
     },[loadMore])
 
