@@ -1,25 +1,25 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { useContext } from "react"
+import { createGlobalStyle } from "styled-components"
+import { ThemeContext } from "../contexts/theme-context"
+
 import Detail from "./details-page"
 import PageMain from "./page-main"
-import { ThemeContext } from "../contexts/theme-context"
-import { createGlobalStyle } from "styled-components"
-import { useContext } from "react"
 
 const AppRoutes = () => {
 
-    const { theme } = useContext(ThemeContext)
-    
-    return (
-    <BrowserRouter>
-        <GlobalStyle backgroundTheme={theme.BackgroundMain}/>
-        <Routes>
-            <Route exact path='/' element={<PageMain />}/>
-            <Route exact path='/pokemon/:name' element={<Detail />} />
-        </Routes>
-    </BrowserRouter>
-    )
-}
+  const { theme } = useContext(ThemeContext)
 
+  return (
+    <BrowserRouter>
+      <GlobalStyle backgroundTheme={theme.BackgroundMain} />
+      <Routes>
+        <Route exact path='/' element={<PageMain />} />
+        <Route exact path='/pokemon/:name' element={<Detail />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
 const GlobalStyle = createGlobalStyle` 
   *{

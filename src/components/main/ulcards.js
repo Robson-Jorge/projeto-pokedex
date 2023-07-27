@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import  Card  from "./card";
-import styled from "styled-components";
-import { getListPokemon } from "../../services/pokemonList";
 import { Link } from 'react-router-dom'
+import styled from "styled-components";
+
+import { getListPokemon } from "../../services/pokemonList";
+import  Card  from "./card";
 
 export default function UlCards({count, onFilterPoke}) {
 
@@ -18,25 +19,22 @@ export default function UlCards({count, onFilterPoke}) {
     },[count, onFilterPoke])
 
     return(
-    <Ul>
-        
-        {poke.data?.length > 0 ? (
-            poke.data.map((pokemon, key) => (
-                <Link key={key} to={`/pokemon/${pokemon.name}`}>
-                    <Card key={key} item={pokemon} />
-                </Link>
-        ))
-        ) : !poke.data ? (
-            <p className="err">Nenhum Pokémon corresponde à sua pesquisa</p>
+        <Ul>      
+            {poke.data?.length > 0 ? (
+                poke.data.map((pokemon, key) => (
+                    <Link key={key} to={`/pokemon/${pokemon.name}`}>
+                        <Card key={key} item={pokemon} />
+                    </Link>
+            ))
+            ) : !poke.data ? (
+                <p className="err">Nenhum Pokémon corresponde à sua pesquisa</p>
 
-        ) : (
-            <Link to={`/pokemon/${poke.data.name}`}>
-                <Card item={poke.data} />       
-            </Link>
-        )}
-  
-        
-    </Ul>
+            ) : (
+                <Link to={`/pokemon/${poke.data.name}`}>
+                    <Card item={poke.data} />       
+                </Link>
+            )}    
+        </Ul>
     )
 }
 

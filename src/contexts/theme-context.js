@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import useTheme from '../hooks/useTheme'
-import Themes from "../components/themes/themes";
+import Themes from "../themes/themes";
 
 export const ThemeContext = createContext({})
 

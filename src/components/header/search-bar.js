@@ -1,7 +1,8 @@
-import Icon from '../../image/icon-search'
-import styled from 'styled-components'
-import Themes from '../themes/themes'
 import { useState } from 'react';
+import styled from 'styled-components'
+
+import Icon from '../../image/icon-search'
+import Themes from '../../themes/themes'
 
 export default function SearchBar ({onValueChange}) {
 
@@ -23,17 +24,15 @@ export default function SearchBar ({onValueChange}) {
     };
 
     return (
-        <>
-            <SearchIcon>
-                <input 
-                    type='text' 
-                    placeholder='Search for name or number' 
-                    onChange={handleInput} 
-                    onKeyPress={handleKeyPress}>
-                </input>
-                <Icon onClick={handleChange}/>
-            </SearchIcon>
-        </>
+        <SearchIcon>
+            <input 
+                type='text' 
+                placeholder='Search for name or number' 
+                onChange={handleInput} 
+                onKeyPress={handleKeyPress}>
+            </input>
+            <Icon onClick={handleChange}/>
+        </SearchIcon>
     )
 }
 

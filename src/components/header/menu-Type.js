@@ -1,48 +1,42 @@
-import styled  from "styled-components"
-import colorTypes from "../themes/types-list-colors"
-import getTypePokemon from "../../services/types-pokemon"
 import { useEffect, useState } from "react"
-import Themes from "../themes/themes"
+import styled from "styled-components"
+import getTypePokemon from "../../services/types-pokemon"
 
-export default function MenuHamburguer () {
+import colorTypes from "../../themes/types-list-colors"
+import Themes from "../../themes/themes"
+
+export default function MenuHamburguer() {
 
     const [poke, setPoke] = useState([])
-    useEffect(() =>{
-
+    useEffect(() => {
         (async () => {
-          const data = await getTypePokemon()
-          const result = data.results.map(type => type.name)
-          setPoke(result)
+            const data = await getTypePokemon()
+            const result = data.results.map(type => type.name)
+            setPoke(result)
         })()
-      },[])
-
-    const typePokemon = poke.map((type, index) => (
-        
-        <li key={index}><a href="#" style={{background:colorTypes[type]}}>{type}</a></li>
-    ));
+    }, [])
 
     return (
-        <>
-            <Nav>
-                <input type="checkbox" id="menu-hamburguer" />
-                
-                <label htmlFor="menu-hamburguer">
-                
-                    <Div>
-                        <p>Types</p>
-                        <span></span>
-                    </Div>
-                </label>
-
-                <Ul>
-                    {typePokemon}
-                </Ul>
-            </Nav>
-        </>
+        <Nav>
+            <input type="checkbox" id="menu-hamburguer" />
+            <label htmlFor="menu-hamburguer">
+                <Div>
+                    <p>Types</p>
+                    <span></span>
+                </Div>
+            </label>
+            <Ul>
+                {
+                    poke.map((type, index) => (
+                        <li key={index}>
+                            <a href="#" style={{ background: colorTypes[type] }}>{type}</a>
+                        </li>
+                    ))
+                }
+            </Ul>
+        </Nav>
     )
 }
-
-//Styled
 
 const Nav = styled.nav` 
     position: relative;

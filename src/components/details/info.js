@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Themes from "../themes/themes";
+import Themes from "../../themes/themes";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getPokemon } from "../../services/pokemon";
@@ -18,10 +18,10 @@ export default function Info({pokemon}) {
 
     const status = details?.stats?.map((info, index) =>{
         return(
-        <div key='index'>
+        <li key={index}>
             <span>{info.stat.name}</span>
             <span>{info.base_stat}</span>
-        </div>
+        </li>
         )
     })
 
@@ -33,9 +33,9 @@ export default function Info({pokemon}) {
                 <li><a href="#">Ability</a></li>
                 <li><a href="#">Moves</a></li>
             </Ul> 
-            <div id="status">
+            <ul id="status">
                 {status}
-            </div>          
+            </ul>          
         </InfoPoke>
     )
 }
@@ -56,7 +56,7 @@ const InfoPoke = styled.div`
         flex-direction: column;
         gap: 15px;
     }
-    #status div{
+    #status li{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -65,12 +65,12 @@ const InfoPoke = styled.div`
         border-radius: 8px;
         background: linear-gradient(90deg, #CC0032 65%, #000 67%, #FFF 69%), rgba(255, 255, 255, 0.50);
     }
-    div span:first-child{
+    li span:first-child{
         width: 70%;
         display: flex;
         justify-content: center;
     }
-    div span:last-child{
+    li span:last-child{
         width: 30%;
         display: flex;
         justify-content: center;

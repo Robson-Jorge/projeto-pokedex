@@ -1,45 +1,38 @@
-import styled from "styled-components";
-import Themes from "../themes/themes";
 import { useState, useEffect, useContext } from "react";
-import colorTypes from "../themes/types-list-colors";
+import styled from "styled-components";
 import { getPokemon } from '../../services/pokemon'
+
+import colorTypes from "../../themes/types-list-colors";
 import { ThemeContext } from "../../contexts/theme-context";
 
 export default function Card({pokemon}) {
-    const [poke, setPoke] = useState({
-        namePoke : '',
-        typeName : []
-    })
-    const [ pokeImage, setPokeImage] = useState()
+    const [poke, setPoke] = useState()
 
     const {theme} = useContext(ThemeContext)
 
     useEffect(() =>{
-
         (async () => {
             const data = await getPokemon(pokemon)
-            const dataImg = data.sprites?.other.dream_world.front_default;
-            const pokeName = data.name  
-            const result = data.types?.map(type => type.type.name)
-            setPokeImage(dataImg)
-            setPoke(prevState => ({...prevState, typeName : [result], namePoke : pokeName}))
+            setPoke(data)
         })()
     },[])
-
-
-    const typePokemon = poke?.typeName[0]?.map((type, index) => (
-        
-        <li key={index} style={{background:colorTypes[type]}}>{type}</li>
-    ));
 
     return(
         <CardContent color={theme.Color} background={theme.BackgroundCard}>
             <div>
-                <p>{poke.namePoke}</p>
+                <p>{poke?.name}</p>
             </div>
-            <img src={pokeImage} alt={poke.namePoke}/>
+            <img src={poke?.sprites?.other.dream_world.front_default} alt={poke?.name}/>
             <ul>
-                {typePokemon}
+                {
+                    poke?.types?.map((type, index) => {
+                        return(
+                            <li key={index} style={{background:colorTypes[type.type.name]}}>
+                                {type.type.name}
+                            </li>
+                        )
+                    })
+                }
             </ul>
         </CardContent>
     )

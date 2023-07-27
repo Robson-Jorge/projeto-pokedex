@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Themes from "../themes/themes";
+import Themes from "../../themes/themes";
 
 export default function LoadButton ({onClick}) {
     return(

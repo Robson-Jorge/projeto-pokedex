@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
+
 import ImageLogo from "../../image/pokemonLogo.png"
 
 export default function Logo () {
-
     return (
-        <a href="/">
+        <a href='/'>
             <Image src={ImageLogo} alt='Logo Pokemon'/>
         </a>
     )

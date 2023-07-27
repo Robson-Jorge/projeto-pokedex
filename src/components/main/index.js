@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react"
 import styled from "styled-components"
+import { getListPokemon } from "../../services/pokemonList"
+
 import UlCards from "./ulcards"
 import LoadButton from "./button"
-import { useState, useEffect } from "react"
-import { getListPokemon } from "../../services/pokemonList"
 
 export default function Main ({filterPoke}) {
 

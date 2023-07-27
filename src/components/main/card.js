@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import Themes from "../themes/themes";
 import { useContext } from "react";
-import colorTypes from "../themes/types-list-colors";
+import styled from "styled-components";
 import { ThemeContext } from "../../contexts/theme-context";
+
+import Themes from "../../themes/themes";
+import colorTypes from "../../themes/types-list-colors";
 
 export default function Card ({item}) {
 
@@ -18,7 +19,9 @@ export default function Card ({item}) {
                 {
                     item?.types?.map((type, index) => {
                         return(
-                            <li key={index} style={{background:colorTypes[type.type.name]}}>{type.type.name}</li>
+                            <li key={index} style={{background:colorTypes[type.type.name]}}>
+                                {type.type.name}
+                            </li>
                         )
                     })
                 }
@@ -26,8 +29,6 @@ export default function Card ({item}) {
         </CardContent>
     )
 }
-
-//Style
 
 const CardContent = styled.div`
  width: 216px;

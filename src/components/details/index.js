@@ -1,10 +1,13 @@
+import { useContext } from "react"
+import { Link, useParams } from "react-router-dom"
 import styled from "styled-components"
 import { ThemeContext } from "../../contexts/theme-context"
-import { useContext } from "react"
+
 import Card from "./card"
 import Info from "./info"
 import IconOff from "../../image/icon-off"
-import { Link, useParams } from "react-router-dom"
+import Toggle from "../header/toggleButton"
+import Logo from "../header/logo"
 
 export default function Details () {
 
@@ -14,9 +17,11 @@ export default function Details () {
 
     return(
         <Container color={theme.Color} background={theme.BackgroundModal}>
+            <Logo/>
+            <Toggle className='toggle'/>
             <Link to='/'>
                 <IconOff/>
-            </Link>
+            </Link>  
             <Card pokemon={name}/>
             <Info pokemon={name}/>
         </Container>
@@ -39,6 +44,17 @@ const Container = styled.div`
     border-radius: 10px;
     gap: 50px;
 
+    .toggle{
+        position: absolute;
+        right: -280px;
+        top: -20px;
+    }
+
+    &>a:first-child{
+        position: absolute;
+        top: -40px;
+        left: -280px;
+    }
     &>a{
         position: absolute;
         top: 10px;
