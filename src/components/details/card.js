@@ -92,4 +92,9 @@ const CardContent = styled.div`
     border-radius: 20px;
     font-family: 'Acme';
  }
+
+ li:hover{
+    cursor: pointer;
+    color: #000;
+ }
 `
