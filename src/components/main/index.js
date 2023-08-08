@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import styled from "styled-components"
-import { getListPokemon } from "../../services/pokemonList"
+import getListPokemon from "../../services/pokemonList"
 
 import UlCards from "./ulcards"
 import LoadButton from "./button"

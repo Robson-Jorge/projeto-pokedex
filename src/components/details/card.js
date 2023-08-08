@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { getPokemon } from '../../services/pokemon'
+import getPokemon from '../../services/pokemon'
 
 import colorTypes from "../../themes/types-list-colors";
 import { ThemeContext } from "../../contexts/theme-context";

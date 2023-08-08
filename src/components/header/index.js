@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Logo from "../header/logo"
 import Toggle from "../header/toggleButton"
 import SearchBar from "./search-bar"
-import MenuHamburguer from "./menu-Type"
 
 export default function Header({ setValue }) {
 
@@ -36,7 +35,6 @@ export default function Header({ setValue }) {
     <HeaderContainer scrolled={scrolled}>
       <Logo />
       <SearchBar onValueChange={handleValueChange} />
-      <MenuHamburguer />
       <Toggle />
     </HeaderContainer>
   )

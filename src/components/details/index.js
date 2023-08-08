@@ -51,6 +51,7 @@ const Container = styled.div`
     }
 
     &>a:first-child{
+        width: max-content;
         position: absolute;
         top: -40px;
         left: -280px;

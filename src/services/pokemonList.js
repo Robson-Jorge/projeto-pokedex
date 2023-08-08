@@ -1,6 +1,6 @@
-import { getPokemon } from "./pokemon";
+import getPokemon from "./pokemon";
 
-async function getListPokemon(loadMore, onFilterPoke) {
+export default async function getListPokemon(loadMore, onFilterPoke) {
 
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${loadMore}`)
   const results = await response.json()
@@ -20,5 +20,3 @@ async function getListPokemon(loadMore, onFilterPoke) {
     return Promise.all(list)
   }
 }
-
-export { getListPokemon }

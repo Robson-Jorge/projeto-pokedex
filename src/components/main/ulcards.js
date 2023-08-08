@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import styled from "styled-components";
 
-import { getListPokemon } from "../../services/pokemonList";
+import getListPokemon from "../../services/pokemonList";
 import  Card  from "./card";
 
 export default function UlCards({count, onFilterPoke}) {

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Themes from "../../themes/themes";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getPokemon } from "../../services/pokemon";
+import getPokemon from "../../services/pokemon";
 import getAbilityPokemon from "../../services/abilities-pokemon";
 import getMovesPokemon from "../../services/moves";
 

@@ -2,7 +2,7 @@ import FundoImagemLight from '../image/pokemon-dia.jpg'
 import FundoImagemDark from '../image/pokemon-noite.jpg'
 import FundoModalLight from '../image/pokemon-modal-dia.png'
 import FundoModalDark from '../image/pokemon-modal-noite.png'
-import FundoModalInfo from '../image/Rectangle42.png'
+import FundoModalInfo from '../image/bg-modal-info.png'
 
 const Themes = {
     Default : {
