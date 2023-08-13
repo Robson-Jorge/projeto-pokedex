@@ -27,7 +27,9 @@ export default function UlCards({count, onFilterPoke}) {
                     </Link>
             ))
             ) : !poke.data ? (
-                <p className="err">Nenhum Pokémon corresponde à sua pesquisa</p>
+                <p className="err">  Desculpe, não encontramos nenhum Pokémon correspondente à sua pesquisa.<br/>
+                Certifique-se de digitar o nome do Pokémon em letras minúsculas e sem espaços.<br/>
+                Se necessário, use o sinal "-" para separar as palavras.</p>
 
             ) : (
                 <Link to={`/pokemon/${poke.data.name}`}>
@@ -48,6 +50,7 @@ const Ul = styled.ul`
     font: 22px 'Gloock';
     
     .err{
+        max-width: 600px;
         padding: 10px 15px;
         line-height: 26px;
         border-radius: 25px;

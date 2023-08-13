@@ -168,8 +168,10 @@ const InfoPoke = styled.div`
     background: url(${props => props.background}) no-repeat center / cover;
     position: relative;
     margin-bottom: 20px;
+
     #status{
         display: flex;
+        width: 70%;
         flex-direction: column;
         gap: 15px;
     }
@@ -177,7 +179,8 @@ const InfoPoke = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 295px;
+        font-size: 20px;
+        width: 100%;
         height: 40px;
         border-radius: 8px;
         background: linear-gradient(90deg, #CC0032 65%, #000 67%, #FFF 69%), rgba(255, 255, 255, 0.50);
@@ -188,7 +191,7 @@ const InfoPoke = styled.div`
         justify-content: center;
         color: #fff;
         text-shadow: -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 1px 1px 2px #000;
-        font-size: 20px;
+        font-size: inherit;
         line-height: 40px;
         font-weight: 500;
         text-transform: capitalize;
@@ -196,7 +199,7 @@ const InfoPoke = styled.div`
     #status li span{
         width: 30%;
         display: flex;
-        font-size: 20px;
+        font-size: inherit;
         justify-content: center;
     }
 
@@ -224,6 +227,7 @@ const InfoPoke = styled.div`
     #moves{
         display: none;
         flex-direction: column;
+        width: 70%;
         gap: 15px;
         color: #fff;
     }
@@ -232,7 +236,7 @@ const InfoPoke = styled.div`
         position: relative;
         cursor: pointer;
         text-align: center;
-        width: 295px;
+        width: 100%;
         height: 40px;
         border-radius: 8px;
         background: linear-gradient(90deg, #CC0032 65%, #000 67%, #FFF 69%), rgba(255, 255, 255, 0.50);
@@ -254,8 +258,9 @@ const InfoPoke = styled.div`
         height: 290px;
         background: #BDC0CA;
         position: absolute;
+        z-index: 2;
         border-radius: 5px;
-        right: -95%;
+        right: -50%;
         top: -150px;
         justify-content: space-between;
         gap: 10px;
@@ -311,6 +316,75 @@ const InfoPoke = styled.div`
     .list{
         display: none;
     }
+
+    @media (max-width: 1440px){
+        .info{
+            right: -90%;
+        }
+    }
+
+    @media (max-width: 1200px){
+        &{
+            width: 80%;
+            height: 480px;
+            align-self: center;
+        }
+
+        #status{
+            width: 80%;
+        }
+
+        #status li{
+            font-size: 16px;
+        }
+
+        #moves{
+            width: 80%;
+        }
+
+        #moves li h2{
+            font-size: 16px;
+        }
+
+        .info{
+            right: -75%;
+        }
+
+        #ability h1{
+        font-size: 18px;
+        }
+
+        #ability p{
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px){
+        #moves{
+            gap: 5px;
+        }
+
+        .info{
+            width: 220px;
+            height: 230px;
+            top: -220px;
+            right: -30%;
+        }
+    }
+
+    @media (max-height: 830px) and (max-width: 480px){
+        &{
+            height: 380px;
+        }
+
+        #moves li{
+            height: 35px;
+        }
+
+        #status{
+            gap: 5px;
+        }
+    }
 `
 
 const Ul = styled.ul`
@@ -341,5 +415,12 @@ const Ul = styled.ul`
     .active{
         background-color: ${Themes.Default.ColorDarkPoke};
         color: #fff; 
+    }
+
+    @media (max-width: 480px){
+        li{
+            padding: 4px 18px;
+            font-size: 16px;
+        }
     }
 `

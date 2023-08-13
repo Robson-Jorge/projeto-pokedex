@@ -42,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background-color: #282c34;
     font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
   }
 
   #root{
@@ -56,7 +57,6 @@ const GlobalStyle = createGlobalStyle`
     transition: 0.4s ease-in-out;
     font-size: calc(10px + 2vmin);
     padding-bottom: 20px;
-    min-height: 100vh;
   }
   *::-webkit-scrollbar {
     width: 12px;
@@ -76,6 +76,12 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: PokemonClassic;
     src: url('./fonts/PokemonClassic.ttf');
+ }
+
+ @media (max-width: 720px){
+  #root{
+    padding-bottom: 0;
+  }
  }
 `
 

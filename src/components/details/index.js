@@ -33,7 +33,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 60%;
-    min-height: 650px;
+    height: 650px;
     background: url(${props => props.background}) no-repeat center / cover;
     background-color: #393939;
     position: absolute;
@@ -46,7 +46,7 @@ const Container = styled.div`
 
     .toggle{
         position: absolute;
-        right: -280px;
+        right: -30%;
         top: -20px;
     }
 
@@ -54,7 +54,7 @@ const Container = styled.div`
         width: max-content;
         position: absolute;
         top: -40px;
-        left: -280px;
+        left: -30%;
     }
     &>a{
         position: absolute;
@@ -63,5 +63,49 @@ const Container = styled.div`
     }
     svg{
         fill: ${props=> props.color};
+    }
+
+    @media (max-width: 1000px){
+        &{
+            flex-direction: column;
+            height: min-content;
+        }
+
+        &>a:first-child{
+            top: 0px;
+        }
+
+        & .toggle{
+            top: 10px;
+        }
+    }
+
+    @media (max-width: 480px){
+        &{
+            position: static;
+            width: 100vw;
+            height: 100vh;
+            transform: none;
+            border-radius: 0;
+        }
+
+        &>a:first-child{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &>a{
+            top: 15px;
+            right: 18px;
+        }
+
+        & .toggle{
+            top: 20px;
+            left: 15px;
+        }
+
+        svg{
+            font-size: 25px;
+        }
     }
 `

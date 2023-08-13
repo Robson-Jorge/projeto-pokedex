@@ -37,4 +37,16 @@ const MainContent = styled.main`
     justify-content: center;
     padding: 0 40px;
     margin-bottom: 20px;
+
+    @media (max-width: 720px) {
+        &{
+            margin-top: 150px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &{
+            margin-top: 135px;
+        }
+    }
 `
