@@ -50,4 +50,5 @@ const HeaderContainer = styled.header`
   top: 0;
   flex-wrap: wrap;
   background-color: ${({ scrolled }) => (scrolled ? 'rgba(0, 0, 33, 0.9)' : 'transparent')};
+  z-index: 1;
 `

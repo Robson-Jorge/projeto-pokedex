@@ -94,7 +94,7 @@ const CardContent = styled.div`
     }
 
     li:hover{
-        cursor: pointer;
+        cursor: default;
         color: #000;
     }
 

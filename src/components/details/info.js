@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import Themes from "../../themes/themes";
 import { useState } from "react";
 import { useEffect } from "react";
+
+import Themes from "../../themes/themes";
 import getPokemon from "../../services/pokemon";
 import getAbilityPokemon from "../../services/abilities-pokemon";
 import getMovesPokemon from "../../services/moves";
@@ -18,12 +19,12 @@ export default function Info({pokemon}) {
 
         listItems.forEach(item => {
 
-            function apagar() {
+            function remove() {
                 listItems.forEach(item => {
                     const contain = item.classList.contains('active')
 
-                    const src = item?.firstChild.getAttribute('href')
-                    const targetElement = document.querySelector(src);
+                    const href = item?.firstChild.getAttribute('href')
+                    const targetElement = document.querySelector(href);
 
                     if (contain) {
                         item.classList.remove('active')
@@ -38,15 +39,15 @@ export default function Info({pokemon}) {
             item.addEventListener('click', () => {
                 const contain = item.classList.contains('active')
 
-                const src = item?.firstChild.getAttribute('href')
-                const targetElement = document.querySelector(src);
+                const href = item?.firstChild.getAttribute('href')
+                const targetElement = document.querySelector(href);
 
 
                 if (contain & targetElement.style.display === 'none') {
                     targetElement.style.display = 'none';
                     item.classList.remove('active')
                 } else {
-                    apagar()
+                    remove()
                     item.classList.add('active')
                     targetElement.style.display = 'flex';
                 }
@@ -58,19 +59,13 @@ export default function Info({pokemon}) {
             setDetails(data)
 
             const ability = data.abilities
-            const abilityPromisses = ability.map(async ability =>{
-                const dataAbility = await getAbilityPokemon(ability.ability.name)
-                return dataAbility
-            })
+            const abilityPromisses = ability.map(async ability => await getAbilityPokemon(ability.ability.name))
 
             const abilityData = await Promise.all(abilityPromisses)
             setAbility(abilityData)
 
             const moves = data?.moves.slice(0,7)
-            const movesPromisses = moves.map(async move => {
-                const dataMove = await getMovesPokemon(move.move.name)
-                return dataMove
-            })
+            const movesPromisses = moves.map(async move => await getMovesPokemon(move.move.name))
 
             const moveData = await Promise.all(movesPromisses)
             setMoves(moveData)
@@ -78,20 +73,32 @@ export default function Info({pokemon}) {
     },[])
 
     const abilities = ability?.map((info, index) =>{
-        return(
-            <li key={index}>
-                <h1>{info.name}</h1>
-                <p>{info.effect_entries[1].effect}</p>
-            </li>
-        )
+
+        const language = info.effect_entries.map((data) => data.language.name)
+
+        if(language[1] === 'en'){
+            return(
+                <li key={index}>
+                    <h2>{info.name}</h2>
+                    <p>{info?.effect_entries[1].effect}</p>
+                </li>
+            )
+        }else{
+            return(
+                <li key={index}>
+                    <h2>{info.name}</h2>
+                    <p>{info?.effect_entries[0].effect}</p>
+                </li>
+            )
+        }
     })
 
     const status = details?.stats?.map((info, index) =>{
         return(
-        <li key={index}>
-            <h2>{info.stat.name}</h2>
-            <span>{info.base_stat}</span>
-        </li>
+            <li key={index}>
+                <h2>{info.stat.name}</h2>
+                <span>{info.base_stat}</span>
+            </li>
         )
     })
 
@@ -213,7 +220,7 @@ const InfoPoke = styled.div`
         overflow-y: auto;
     }
 
-    #ability h1{
+    #ability h2{
         color: ${Themes.Default.ColorLightPoke};
         font-size: 22px;
         margin-bottom: 10px;
@@ -406,6 +413,7 @@ const Ul = styled.ul`
     li:hover{
         background-color: ${Themes.Default.ColorDarkPoke};
         color: #fff;
+        cursor: pointer;
     }
 
     a{

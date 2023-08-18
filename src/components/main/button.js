@@ -22,6 +22,10 @@ const Button = styled.button`
     transition: background-color 0.3s ease, color 0.3s ease;
     &:hover{
         transform: scale(1.02);
+    }   
+    @media (max-width: 480px) {
+        &{
+            margin-bottom: 20px;
+        }
     }
-    
 ` 
