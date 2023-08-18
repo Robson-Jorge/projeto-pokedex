@@ -97,7 +97,7 @@ Antes de começar, verifique se você tem um gerenciador de pacotes instalado em
 cd caminho/para/pasta/do/projeto
 ````
 
-1 - No terminal, execute o seguinte comando para instalar as dependências necessárias:
+3 - No terminal, execute o seguinte comando para instalar as dependências necessárias:
 ````
 npm install
 ````
