@@ -35,6 +35,8 @@ Neste repositório, você encontrará detalhes sobre a criação desta aplicaç�
 
 ### Link Deploy
 
+Siga o link e veja nossa [Pokedéx](https://projeto-pokedex-mu.vercel.app/)
+
 ## Sobre 📖
 
 ## Propósito
