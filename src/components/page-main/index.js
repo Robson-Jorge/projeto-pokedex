@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import styled from "styled-components"
 import getListPokemon from "../../services/pokemonList"
 
-import UlCards from "./ulcards"
+import UlCards from "./ul-card"
 import LoadButton from "./button"
+import { MainContent } from "./style"
 
 export default function Main ({filterPoke}) {
 
@@ -28,25 +28,3 @@ export default function Main ({filterPoke}) {
         </>
     )
 }
-
-const MainContent = styled.main`
-    margin-top: 90px;
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 40px;
-    margin-bottom: 20px;
-
-    @media (max-width: 720px) {
-        &{
-            margin-top: 150px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        &{
-            margin-top: 135px;
-        }
-    }
-`

@@ -3,8 +3,8 @@ import { useContext } from "react"
 import { createGlobalStyle } from "styled-components"
 import { ThemeContext } from "../contexts/theme-context"
 
-import Detail from "./details-page"
-import PageMain from "./page-main"
+import Detail from "../pages/details-page"
+import PageMain from "../pages/page-main"
 
 const AppRoutes = () => {
 

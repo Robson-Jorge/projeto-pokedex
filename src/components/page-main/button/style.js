@@ -1,15 +1,7 @@
 import styled from "styled-components";
-import Themes from "../../themes/themes";
+import Themes from "../../../themes/themes";
 
-export default function LoadButton ({onClick}) {
-    return(
-        <>
-            <Button onClick={onClick}>Carregar mais</Button>
-        </>
-    )
-}
-
-const Button = styled.button`
+export const Button = styled.button`
     width: 300px;
     height: 40px;
     background-color: ${Themes.Default.ColorLightPoke};

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import GoogleFontLoader from 'react-google-font-loader'
 
-import Header from "./components/header/"
-import Main from "./components/main";
+import Header from "./components/page-header"
+import Main from "./components/page-main";
 
 function App () {
 

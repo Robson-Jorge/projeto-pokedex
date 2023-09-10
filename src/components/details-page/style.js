@@ -1,34 +1,6 @@
-import { useContext } from "react"
-import { Link, useParams } from "react-router-dom"
 import styled from "styled-components"
-import { ThemeContext } from "../../contexts/theme-context"
 
-import Card from "./card"
-import Info from "./info"
-import IconOff from "../../image/icon-off"
-import Toggle from "../header/toggleButton"
-import Logo from "../header/logo"
-
-export default function Details () {
-
-    const {theme} = useContext(ThemeContext)
-
-    const {name} = useParams()
-
-    return(
-        <Container color={theme.Color} background={theme.BackgroundModal}>
-            <Logo/>
-            <Toggle className='toggle'/>
-            <Link to='/'>
-                <IconOff/>
-            </Link>  
-            <Card pokemon={name}/>
-            <Info pokemon={name}/>
-        </Container>
-    )
-}
-
-const Container = styled.div`
+export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;

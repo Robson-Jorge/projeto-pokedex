@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { AppRoutes } from './pages/routes';
+import { AppRoutes } from './routes';
 import { ThemeProvider } from './contexts/theme-context';
 
 

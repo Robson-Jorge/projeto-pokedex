@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import styled from "styled-components"
 
-import Logo from "../header/logo"
-import Toggle from "../header/toggleButton"
+import Logo from "./logo"
+import Toggle from "./toggler-button"
 import SearchBar from "./search-bar"
+import { HeaderContainer } from "./style"
 
 export default function Header({ setValue }) {
 
@@ -39,16 +39,3 @@ export default function Header({ setValue }) {
     </HeaderContainer>
   )
 }
-
-const HeaderContainer = styled.header`
-  display: flex;
-  width: 100vw;
-  padding: 15px 30px;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  flex-wrap: wrap;
-  background-color: ${({ scrolled }) => (scrolled ? 'rgba(0, 0, 33, 0.9)' : 'transparent')};
-  z-index: 1;
-`
