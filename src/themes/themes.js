@@ -1,5 +1,7 @@
 import FundoImagemLight from '../assets/image/pokemon-dia.jpg'
+import FundoImagemLightMobile from '../assets/image/pokemon-dia-mobile.jpg'
 import FundoImagemDark from '../assets/image/pokemon-noite.jpg'
+import FundoImagemDarkMobile from '../assets/image/pokemon-noite-mobile.jpg'
 import FundoModalLight from '../assets/image/pokemon-modal-dia.png'
 import FundoModalDark from '../assets/image/pokemon-modal-noite.png'
 import FundoModalInfo from '../assets/image/bg-modal-info.png'
@@ -26,6 +28,7 @@ const Themes = {
         BackgroundMenu: `#BDC0CA`,
     
         BackgroundMain: FundoImagemLight,
+        BackgroundMainMobile: FundoImagemLightMobile,
         BackgroundModal: FundoModalLight,
     
         BackgroundCard: 'rgba(198, 198, 198, 0.68)',
@@ -46,6 +49,8 @@ const Themes = {
         BackgroundMenu: `#BDC0CA`,
     
         BackgroundMain: FundoImagemDark,
+        BackgroundMainMobile: FundoImagemDarkMobile,
+
         BackgroundModal: FundoModalDark,
 
         BackgroundCard: 'rgba(110, 110, 110, 0.80)',

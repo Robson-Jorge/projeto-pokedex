@@ -12,7 +12,7 @@ const AppRoutes = () => {
 
   return (
     <BrowserRouter>
-      <GlobalStyle backgroundTheme={theme.BackgroundMain} />
+      <GlobalStyle backgroundTheme={theme} />
       <Routes>
         <Route exact path='/' element={<PageMain />} />
         <Route exact path='/pokemon/:name' element={<Detail />} />
@@ -49,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-wrap: wrap;
     background-color: #282c34;
-    background: url(${props => props.backgroundTheme}) no-repeat center / cover fixed;
+    background: url(${props => props.backgroundTheme.BackgroundMain}) no-repeat center / cover fixed;
     min-height: 100vh;
     width: 100vw;
     align-items: flex-start;
@@ -81,6 +81,12 @@ const GlobalStyle = createGlobalStyle`
  @media (max-width: 720px){
   #root{
     padding-bottom: 0;
+  }
+ }
+
+ @media (max-width: 425px){
+  #root{
+    background: url(${props => props.backgroundTheme.BackgroundMainMobile}) no-repeat center / cover fixed;
   }
  }
 `
