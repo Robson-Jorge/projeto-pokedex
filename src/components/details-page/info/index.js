@@ -143,7 +143,7 @@ export default function Info({pokemon}) {
     return(
 
         <InfoPoke background={Themes.Default.BackgroundModalInfo}>
-            <Ul id="menu">
+            <Ul id="menu" translate="no">
                 <li className="active"><a href="#status">Status</a></li>
                 <li><a href="#ability">Ability</a></li>
                 <li><a href="#moves">Moves</a></li>
