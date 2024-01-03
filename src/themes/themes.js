@@ -1,10 +1,10 @@
-import FundoImagemLight from '../assets/image/pokemon-dia.jpg'
-import FundoImagemLightMobile from '../assets/image/pokemon-dia-mobile.jpg'
-import FundoImagemDark from '../assets/image/pokemon-noite.jpg'
-import FundoImagemDarkMobile from '../assets/image/pokemon-noite-mobile.jpg'
-import FundoModalLight from '../assets/image/pokemon-modal-dia.png'
-import FundoModalDark from '../assets/image/pokemon-modal-noite.png'
-import FundoModalInfo from '../assets/image/bg-modal-info.png'
+import FundoImagemLight from '../assets/image/pokemon-dia.webp'
+import FundoImagemLightMobile from '../assets/image/pokemon-dia-mobile.webp'
+import FundoImagemDark from '../assets/image/pokemon-noite.webp'
+import FundoImagemDarkMobile from '../assets/image/pokemon-noite-mobile.webp'
+import FundoModalLight from '../assets/image/pokemon-modal-dia.webp'
+import FundoModalDark from '../assets/image/pokemon-modal-noite.webp'
+import FundoModalInfo from '../assets/image/bg-modal-info.webp'
 
 const Themes = {
     Default : {
