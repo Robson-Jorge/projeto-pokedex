@@ -4,13 +4,13 @@ import Themes from "../themes/themes";
 
 export const ThemeContext = createContext({})
 
-export const ThemeProvider = (props) => {
+export const ThemeProvider = ({children}) => {
 
     const [ theme, setTheme ] = useTheme('theme', Themes.darkTheme)
 
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>
-            {props.children}
+            {children}
         </ThemeContext.Provider>
     )
 }

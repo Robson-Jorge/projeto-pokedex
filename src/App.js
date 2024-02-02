@@ -1,40 +1,39 @@
-import { useState } from "react";
-import GoogleFontLoader from 'react-google-font-loader'
+import React from 'react';
+import { AppRoutes } from './routes';
+import { ThemeProvider } from './contexts/theme-context';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import GoogleFontLoader from 'react-google-font-loader';
 
-import Header from "./components/page-header"
-import Main from "./components/page-main";
+const queryClient = new QueryClient()
 
-function App () {
-
-  const [ valueSearch, setValueSearch] = useState("")
-
-  const setValue = (newValue) => {
-    setValueSearch(newValue);
-  };
+export function App() {
 
   return (
-    <>      
-      <GoogleFontLoader
-        fonts={[
-          {
-            font: 'Acme',
-            weights: [400, '400i'],
-          },
-          {
-            font: 'Roboto',
-            weights: [400, '400i'],
-          },
-          {
-            font: 'Gloock',
-            weights: [400, 700],
-          },
-        ]}
-        subsets={['cyrillic-ext', 'greek']}
-      />
-      <Header setValue={setValue}/>
-      <Main filterPoke={valueSearch}/>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <GoogleFontLoader
+            fonts={[
+              {
+                font: "Acme",
+                weights: [400, "400i"],
+              },
+              {
+                font: "Roboto",
+                weights: [400, "400i"],
+              },
+              {
+                font: "Gloock",
+                weights: [400, 700],
+              },
+            ]}
+            subsets={["cyrillic-ext", "greek"]}
+          />
+          <AppRoutes />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   )
 }
 
-export default App;
+export default App

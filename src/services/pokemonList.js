@@ -1,22 +1,20 @@
 import getPokemon from "./pokemon";
 
-export default async function getListPokemon(loadMore, onFilterPoke) {
-
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${loadMore}`)
-  const results = await response.json()
+export async function getListPokemon(loadMore, onFilterPoke, listName) {
 
   if (onFilterPoke?.length > 0) {
-    try {
+    const filteredList = listName.find(pokemon => pokemon.name === onFilterPoke || pokemon.id === onFilterPoke)
+    if(filteredList){
       return await getPokemon(onFilterPoke)
-
-    } catch (error) {
-      return null;
     }
-  } else {
-    const list = results.results.map(async name => {
-      return await getPokemon(name.name)
-    })
-
-    return Promise.all(list)
+  } 
+  else {   
+    if(listName?.length > 0){
+      const pokemonList = await Promise.all(
+        listName.slice(0,loadMore).map(async data => {
+        return await getPokemon(data.name)
+      }))
+      return pokemonList
+    }  
   }
 }
